@@ -1,4 +1,111 @@
+:root {
+    --gold: #C5A572;
+    --dark: #0A0A0A;
+    --green: #4CAF50;
+}
+
 body {
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+}
+
+.section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    max-width: 800px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Scroll Down Animation */
+.scroll-down {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    position: relative;
+}
+
+.wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--gold);
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 0;
+    }
+}
+
+/* Section Styles */
+.section {
+    background: transparent;
+}
+
+.section .content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-out;
+}
+
+.section.active .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: var(--dark);
+}
+
+/* body {
     font-family: 'Arial', sans-serif;
     color: #e0e0e0;
     line-height: 1.6;
@@ -90,3 +197,4 @@ a:hover {
     border-radius: 15px;
     border: 1px solid #4CAF50;
 }
+ */
